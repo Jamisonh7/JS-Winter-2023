@@ -9,7 +9,7 @@ for (let i = 0; i < arr1.length; i++) {
         arr1Result.push(arr1[i]);
     }
 }
-console.log(arr1Result);
+console.log(`\n(Q1) Result -> ${arr1Result}\n`);
 
 
 
@@ -39,8 +39,13 @@ const accounts = [
         balance: 5000
     },
 ]
-let total = []
+let total = 0
 
+for (let i = 0; i <= accounts.length -1; i++) {
+    total = total + accounts[i].balance
+}
+
+console.log(`\n(Q2) Total of account balances -> $${total}\n`);
 
 
 
@@ -48,6 +53,21 @@ let total = []
 /* Q3 */
 
 
-const arr3 = ['BASEball', 'FOOTBALL', 'rUGBY', 'bASEBALL', 'sOCceR', 'BaskETBALL', 'bAsEbAlL', 'mARAthon'];
-let splitArr3 = arr3.toString().toLowerCase();
-console.log(`${splitArr3}`);
+const arr3 = ['BASEball', 'FOOTBALL', 'rUGBY', 'football', 'sOCceR', 'BaskETBALL', 'bAsEbAlL', 'mARAthon'];
+let count = 0;
+let arr3Result = '';
+
+for (let x = 0; x <= arr3.length -1; x++) {
+    if (arr3[x].toLowerCase().localeCompare('baseball') === 0 && count < 2) {
+        count++;
+        if (count ===2) {
+            arr3Result = x;
+
+        }
+    }
+}
+if (count !== 2) {
+    arr3Result = -1
+
+}
+console.log(`\n(Q3) The second occurance of baseball ignoring cases -> ${arr3Result}\n`);
